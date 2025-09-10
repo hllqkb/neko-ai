@@ -4,12 +4,12 @@
 
 ## 功能特点
 
-- 🧠 **持久记忆**：使用Neo4j图数据库和FAISS向量数据库存储对话历史
-- 🔍 **语义搜索**：使用向量相似度查找相关记忆
-- 📊 **图关系分析**：基于图数据库的关系分析，提供更好的上下文理解
-- 🚀 **高性能API**：基于FastAPI的高性能API服务
-- 🔒 **安全认证**：API密钥验证机制保障服务安全
-- 📝 **灵活配置**：通过YAML/JSON配置文件灵活配置服务参数
+使用Neo4j图数据库和FAISS向量数据库存储对话历史
+使用向量相似度查找相关记忆
+基于图数据库的关系分析，提供更好的上下文理解
+基于FastAPI的高性能API服务
+API密钥验证机制保障服务安全
+通过YAML/JSON配置文件灵活配置服务参数
 
 ## 系统架构
 
@@ -162,56 +162,6 @@ memory:
 ├── config.yaml.example # 配置文件示例
 ├── requirements.txt    # 依赖列表
 └── README.md           # 项目说明文档
-```
-
-## API文档
-
-详细的API文档请参考 [API_DOCUMENTATION.md](API_DOCUMENTATION.md)。
-
-您也可以通过访问服务的Swagger UI文档页面（`/docs`）或ReDoc页面（`/redoc`）获取交互式API文档。
-
-## 开发指南
-
-### 添加新的API端点
-
-1. 在`api/endpoints/`目录下创建新的端点文件
-2. 定义相应的路由和处理函数
-3. 在`api/router.py`中注册新的路由
-
-例如：
-```python
-# api/endpoints/new_feature.py
-from fastapi import APIRouter
-
-router = APIRouter()
-
-@router.get("/example", summary="示例端点")
-async def example_endpoint():
-    return {"message": "这是一个示例端点"}
-
-# api/router.py
-from api.endpoints import new_feature
-
-api_router.include_router(new_feature.router, prefix="/new_feature", tags=["新功能"])
-```
-
-### 添加新的记忆存储方式
-
-1. 在`db/`目录下创建新的存储实现
-2. 在`core/memory_store.py`中添加相应的存储适配器
-3. 在配置文件中添加相应的配置选项
-
-### 运行测试
-
-```bash
-# 运行所有测试
-pytest
-
-# 运行特定模块测试
-pytest tests/test_memory_store.py
-
-# 运行测试并生成覆盖率报告
-pytest --cov=app
 ```
 
 ## 贡献指南
